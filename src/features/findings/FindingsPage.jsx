@@ -19,7 +19,7 @@ function FindingsFilters({ query, riskFilter, statusFilter, sortBy, onQueryChang
 export default function FindingsPage({ findings, visibleFindings, today, theme, query, riskFilter, statusFilter, sortBy, onQueryChange, onRiskChange, onStatusChange, onSortChange, onUpdateStatus, onOpenFinding, onAddFinding }) {
   return <>
     <section className="page-heading" id="findings-page"><div><div className="eyebrow">ANALYST WORKSPACE</div><h1>Findings</h1><p>Review ownership, update records, and track remediation progress.</p></div></section>
-    <section className="panel findings-panel" id="findings">
+    <section className="panel findings-panel" id="findings" data-tour="findings-register">
       <div className="findings-header"><div><h2>Security Findings</h2><p>Track ownership, risk, and remediation due dates.</p></div><button className="primary-button" onClick={onAddFinding}><Plus aria-hidden="true" /> Add Finding</button></div>
       <FindingsFilters query={query} riskFilter={riskFilter} statusFilter={statusFilter} sortBy={sortBy} onQueryChange={onQueryChange} onRiskChange={onRiskChange} onStatusChange={onStatusChange} onSortChange={onSortChange} />
       <div className="table-wrap"><table><thead><tr><th>FINDING ID / CONTROL AREA</th><th>RISK</th><th>OWNER / DEPARTMENT</th><th>DATE IDENTIFIED</th><th>REMEDIATION DUE</th><th>STATUS</th><th>UPDATED</th></tr></thead><tbody>{visibleFindings.map((finding) => <FindingRow key={finding.id} finding={finding} today={today} theme={theme} onOpenFinding={onOpenFinding} onUpdateStatus={onUpdateStatus} />)}{visibleFindings.length === 0 && <tr><td className="no-results" colSpan="7">No findings match your filters. Add a finding or adjust your search.</td></tr>}</tbody></table></div>

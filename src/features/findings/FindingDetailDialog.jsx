@@ -10,7 +10,7 @@ function FindingEditor({ finding, onCancel, onSave }) {
     const saved = onSave(draft)
     if (saved) onCancel()
   }
-  return <form className="edit-finding-form" onSubmit={submit}>
+  return <form className="edit-finding-form" onSubmit={submit} data-tour="finding-editor">
     <label className="field full"><span>Finding description (30 characters minimum)</span><textarea required minLength={30} rows={4} value={draft.description} onChange={(event) => update('description', event.target.value)} /><span className="field-hint" aria-live="polite">{draft.description.length}/30 characters minimum</span></label>
     <div className="detail-edit-grid">
       <label className="field"><span>ISO control area</span><input required value={draft.controlArea} onChange={(event) => update('controlArea', event.target.value)} /></label>
@@ -31,13 +31,13 @@ function FindingEditor({ finding, onCancel, onSave }) {
 }
 
 function FindingRecord({ finding }) {
-  return <>
+  return <div className="finding-record-view" data-tour="finding-record">
     <p className="detail-description">{finding.description}</p>
     <div className="detail-grid"><div><span>ISO control area</span><strong>{finding.controlArea} · {controlAreaNames[finding.controlArea] || 'Control area'}</strong></div><div><span>Risk criticality</span><strong><span className={`risk-tag ${finding.risk.toLowerCase()}`}>{finding.risk}</span></strong></div><div><span>Owner / department</span><strong>{finding.owner}</strong></div><div><span>Current status</span><strong>{finding.status}</strong></div><div><span>Date identified</span><strong>{finding.dateIdentified}</strong></div><div><span>Remediation due</span><strong>{finding.dueDate}</strong></div><div><span>Last updated</span><strong>{finding.lastUpdated}</strong></div></div>
     <div className="residual-risk-rationale"><div><span>Residual risk after controls</span><strong>{finding.residualRisk || 'Not assessed'}</strong></div><div><span>Residual Risk Rationale</span><p>{finding.residualRiskRationale || 'No rationale recorded.'}</p></div></div>
     <div className="remediation-strategy"><span>Remediation Strategy</span><p>{finding.remediationStrategy || 'No remediation strategy recorded.'}</p></div>
     <div className="evidence-block"><div className="evidence-status"><span>Evidence provided</span><strong>{finding.evidence || 'No Evidence Provided'}</strong></div><div className="evidence-notes"><span>Evidence details</span><p>{finding.evidenceDetails || 'No evidence details recorded.'}</p></div></div>
-  </>
+  </div>
 }
 
 function UpdatesPanel({ finding, onPostUpdate, onDeleteUpdate }) {
@@ -48,19 +48,20 @@ function UpdatesPanel({ finding, onPostUpdate, onDeleteUpdate }) {
     if (posted) setComment('')
   }
   const updates = finding.updates || []
-  return <section className="updates-section" aria-labelledby="updates-title">
+  return <section className="updates-section" aria-labelledby="updates-title" data-tour="finding-updates">
     <div className="updates-heading"><div><h3 id="updates-title">Updates</h3><p>Record remediation actions and progress.</p></div><span className="updates-count">{updates.length}</span></div>
     <form className="update-composer" onSubmit={submit}><label className="field full"><span>Add an update</span><textarea rows={3} value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Describe what you did with this finding..." required /></label><div className="update-composer-footer"><span>Posting as Alex Dabbs</span><button type="submit" className="primary-button" disabled={!comment.trim()}>Post Update</button></div></form>
     <div className="updates-list">{updates.map((update, index) => ({ update, index })).reverse().map(({ update, index }) => <article className="update-entry" key={`${update.createdAt}-${index}`}><div className="update-entry-heading"><strong>{update.author || 'Alex Dabbs'}</strong><time dateTime={update.createdAt}>{new Date(update.createdAt).toLocaleString()}</time><button type="button" className="delete-update-button" onClick={() => onDeleteUpdate(finding.id, index)} aria-label={`Delete update from ${update.author || 'Alex Dabbs'}`}>Delete</button></div><p>{update.comment}</p></article>)}{!updates.length && <p className="updates-empty">No updates yet. Add the first progress note above.</p>}</div>
   </section>
 }
 
-export default function FindingDetailDialog({ finding, onClose, onSave, onPostUpdate, onDeleteUpdate }) {
+export default function FindingDetailDialog({ finding, onClose, onSave, onPostUpdate, onDeleteUpdate, guidedEditing = false }) {
   const [editing, setEditing] = useState(false)
+  const isEditing = guidedEditing || editing
   return <div className="modal-backdrop detail-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}>
     <section className="modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
-      <div className="modal-heading detail-modal-heading"><div className="detail-title-area"><div className="eyebrow">FINDING DETAILS</div><div className="detail-title-row"><h2 id="detail-title">Finding {finding.id}</h2>{!editing && <button type="button" className="secondary-button" onClick={() => setEditing(true)}>Edit Finding</button>}</div></div><button className="close-button" onClick={onClose} aria-label="Close finding details"><X aria-hidden="true" /></button></div>
-      <div className="detail-workspace"><section className="detail-record" aria-label="Finding record">{editing ? <FindingEditor key={finding.id} finding={finding} onCancel={() => setEditing(false)} onSave={onSave} /> : <FindingRecord finding={finding} />}</section><UpdatesPanel finding={finding} onPostUpdate={onPostUpdate} onDeleteUpdate={onDeleteUpdate} /></div>
+      <div className="modal-heading detail-modal-heading"><div className="detail-title-area"><div className="eyebrow">FINDING DETAILS</div><div className="detail-title-row"><h2 id="detail-title">Finding {finding.id}</h2>{!isEditing && <button type="button" className="secondary-button" data-tour="finding-edit" onClick={() => setEditing(true)}>Edit Finding</button>}</div></div><button className="close-button" onClick={onClose} aria-label="Close finding details"><X aria-hidden="true" /></button></div>
+      <div className="detail-workspace"><section className="detail-record" aria-label="Finding record">{isEditing ? <FindingEditor key={finding.id} finding={finding} onCancel={() => setEditing(false)} onSave={onSave} /> : <FindingRecord finding={finding} />}</section><UpdatesPanel finding={finding} onPostUpdate={onPostUpdate} onDeleteUpdate={onDeleteUpdate} /></div>
     </section>
   </div>
 }

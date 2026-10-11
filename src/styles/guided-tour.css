@@ -1,0 +1,77 @@
+.tutorial-launcher,
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #667085;
+  cursor: pointer;
+}
+
+.tutorial-launcher:hover,
+.tutorial-launcher:focus-visible,
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: #dce4f0;
+  background: #f5f7fa;
+  color: #215bdb;
+}
+
+.tutorial-launcher:focus-visible,
+.theme-toggle:focus-visible,
+.tour-card button:focus-visible {
+  outline: 2px solid #5886e8;
+  outline-offset: 2px;
+}
+
+.tutorial-launcher svg,
+.theme-toggle svg { width: 17px; height: 17px; }
+
+.guided-tour { position: relative; z-index: 1000; }
+.tour-shade { position: fixed; z-index: 1000; background: rgba(8, 16, 30, .66); pointer-events: auto; }
+.tour-spotlight { position: fixed; z-index: 1001; border: 2px solid #80a8ff; border-radius: 11px; box-shadow: 0 0 0 3px rgba(128, 168, 255, .2); pointer-events: auto; }
+.tour-card { position: fixed; z-index: 1002; width: min(380px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 18px 19px 15px; border: 1px solid #e1e7f0; border-radius: 12px; background: #fff; color: #26354a; box-shadow: 0 18px 50px rgba(7, 17, 32, .3); }
+.tour-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tour-step-count { color: #64748b; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.tour-close { display: inline-grid; place-items: center; width: 30px; height: 30px; margin: -5px -7px 0 0; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #687589; cursor: pointer; }
+.tour-close:hover { background: #f1f4f8; }
+.tour-close svg { width: 17px; height: 17px; }
+.tour-card h2 { margin: 7px 0 6px; color: #1d2c42; font: 700 18px 'Manrope', sans-serif; }
+.tour-card p { margin: 0; color: #596579; font-size: 13px; line-height: 1.55; }
+.tour-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 17px; }
+.tour-card-footer button { min-height: 35px; border-radius: 6px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.tour-skip { padding: 0 4px; border: 0; background: transparent; color: #687589; }
+.tour-skip:hover { color: #26354a; text-decoration: underline; }
+.tour-nav-buttons { display: flex; align-items: center; gap: 7px; }
+.tour-previous { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border: 1px solid #dbe2ec; background: #fff; color: #475467; }
+.tour-previous svg, .tour-next svg { width: 14px; height: 14px; }
+.tour-next { display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid #215bdb; background: #215bdb; color: #fff; }
+.tour-next:hover { border-color: #174bbd; background: #174bbd; }
+
+.app-shell[data-theme='dark'] .tutorial-launcher,
+.app-shell[data-theme='dark'] .theme-toggle { color: #aab8ca; }
+.app-shell[data-theme='dark'] .tutorial-launcher:hover,
+.app-shell[data-theme='dark'] .tutorial-launcher:focus-visible,
+.app-shell[data-theme='dark'] .theme-toggle:hover,
+.app-shell[data-theme='dark'] .theme-toggle:focus-visible { border-color: #35445a; background: #1d2b3e; color: #a9c4ff; }
+.app-shell[data-theme='dark'] .tour-card { border-color: #35445a; background: #162234; color: #e4ebf4; }
+.app-shell[data-theme='dark'] .tour-step-count { color: #9eacc0; }
+.app-shell[data-theme='dark'] .tour-close { color: #aab8ca; }
+.app-shell[data-theme='dark'] .tour-close:hover { background: #24334a; }
+.app-shell[data-theme='dark'] .tour-card h2 { color: #edf3fb; }
+.app-shell[data-theme='dark'] .tour-card p { color: #bbc7d6; }
+.app-shell[data-theme='dark'] .tour-skip { color: #aab8ca; }
+.app-shell[data-theme='dark'] .tour-skip:hover { color: #edf3fb; }
+.app-shell[data-theme='dark'] .tour-previous { border-color: #40516a; background: #1b2a3f; color: #d7e1ee; }
+
+@media (max-width: 760px) {
+  .top-actions { gap: 3px; }
+  .tutorial-launcher, .theme-toggle { width: 28px; height: 28px; flex: 0 0 auto; }
+  .tour-card { padding: 15px 16px 13px; }
+  .tour-card h2 { font-size: 16px; }
+  .tour-card p { font-size: 12px; }
+}

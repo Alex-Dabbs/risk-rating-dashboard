@@ -6,6 +6,7 @@ import OverviewPage from './features/overview/OverviewPage'
 import AddFindingDialog from './features/findings/AddFindingDialog'
 import FindingDetailDialog from './features/findings/FindingDetailDialog'
 import FindingsPage from './features/findings/FindingsPage'
+import GuidedTour from './components/GuidedTour'
 import { localDateString, residualRiskOptions, riskOrder } from './data/findings'
 import { useFindings } from './hooks/useFindings'
 import { useTheme } from './hooks/useTheme'
@@ -23,6 +24,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedFindingId, setSelectedFindingId] = useState(null)
   const [notice, setNotice] = useState('')
+  const [tour, setTour] = useState(null)
 
   const today = new Date().toISOString().slice(0, 10)
   const overdueCount = findings.filter((finding) => finding.dueDate < today && finding.status !== 'Closed').length
@@ -57,10 +59,58 @@ function App() {
     updateHistory(id, (finding) => ({ ...finding, updates: (finding.updates || []).filter((_, index) => index !== updateIndex), lastUpdated: localDateString() }))
   }
 
-  return <WorkspaceLayout activeSection={activeSection} onNavigate={setActiveSection} findingCount={findings.length} theme={theme} onToggleTheme={toggleTheme} overlays={<>
+  function startTutorial(section) {
+    setSelectedFindingId(null)
+    setModalOpen(false)
+    if (section === 'findings') {
+      setActiveSection('findings')
+      setQuery('')
+      setRiskFilter('All risks')
+      setStatusFilter('All statuses')
+    } else {
+      setActiveSection('overview')
+    }
+    setTour({ type: section, step: 0 })
+  }
+
+  function closeTour() {
+    if (tour?.type === 'findings') setSelectedFindingId(null)
+    setTour(null)
+  }
+
+  function advanceTour() {
+    if (tour?.type === 'findings' && tour.step === 0) {
+      const demoFinding = findings.find((finding) => finding.id === '2026-0005')
+      if (!demoFinding) {
+        setNotice('Finding 2026-0005 is not available in this browser. Add or restore it to use the Findings tutorial.')
+        window.setTimeout(() => setNotice(''), 4500)
+        closeTour()
+        return
+      }
+      setSelectedFindingId(demoFinding.id)
+      setTour({ type: 'findings', step: 1 })
+      return
+    }
+
+    const lastStep = tour?.type === 'overview' ? 3 : 4
+    if (tour?.step >= lastStep) closeTour()
+    else setTour((current) => ({ ...current, step: current.step + 1 }))
+  }
+
+  function retreatTour() {
+    if (tour?.type === 'findings' && tour.step === 1) {
+      setSelectedFindingId(null)
+      setTour({ type: 'findings', step: 0 })
+      return
+    }
+    setTour((current) => ({ ...current, step: Math.max(0, current.step - 1) }))
+  }
+
+  return <WorkspaceLayout activeSection={activeSection} onNavigate={setActiveSection} findingCount={findings.length} theme={theme} onToggleTheme={toggleTheme} onStartTutorial={startTutorial} overlays={<>
     {notice && <div className="toast"><Check aria-hidden="true" /> {notice}</div>}
     <AddFindingDialog open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleAddFinding} />
-    {selectedFinding && <FindingDetailDialog key={selectedFinding.id} finding={selectedFinding} onClose={() => setSelectedFindingId(null)} onSave={saveFinding} onPostUpdate={handlePostUpdate} onDeleteUpdate={handleDeleteUpdate} />}
+    {selectedFinding && <FindingDetailDialog key={selectedFinding.id} finding={selectedFinding} guidedEditing={tour?.type === 'findings' && tour.step >= 3} onClose={() => setSelectedFindingId(null)} onSave={saveFinding} onPostUpdate={handlePostUpdate} onDeleteUpdate={handleDeleteUpdate} />}
+    {tour && <GuidedTour tourType={tour.type} stepIndex={tour.step} onPrevious={retreatTour} onNext={advanceTour} onClose={closeTour} />}
   </>}>
     {activeSection === 'overview'
       ? <OverviewPage findings={findings} overdueCount={overdueCount} riskCounts={riskCounts} residualRiskCounts={residualRiskCounts} assessedResidualRiskCount={assessedResidualRiskCount} unassessedResidualRiskCount={unassessedResidualRiskCount} chartFindings={chartFindings} chartRiskCounts={chartRiskCounts} chartYearFilter={chartYearFilter} chartYearOptions={chartYearOptions} onChartYearChange={setChartYearFilter} onOpenFinding={handleOpenFinding} />
