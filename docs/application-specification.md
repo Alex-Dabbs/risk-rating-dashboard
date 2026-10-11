@@ -98,7 +98,7 @@ An action or progress comment nested in a finding's `updates` array.
 | `grc-findings` | JSON array of Finding records | Persists findings and their nested updates in browser local storage. |
 | `grc-theme` | `light` or `dark` | Persists the selected theme in browser local storage. |
 
-No server-side database or separate Company entity is currently implemented. The overview's company identity (`Ceraphin Energy Solutions`) is configured directly in the interface, and the update author (`Demo User`) remains a demonstration value. The initial five records are synthetic sample data used to populate a new browser profile. Replace them with authorized assessment data before use.
+No server-side database or separate Company entity is currently implemented. The overview's company identity (`Ceraphin Energy Solutions`) is configured directly in the interface, and the update author (`Demo User`) remains a demonstration value. The complete five-record synthetic snapshot in `src/data/demo-findings.snapshot.json` is loaded into a new browser profile and includes example descriptions, ownership, residual-risk rationale, remediation strategies, evidence notes, and dated updates. These entries are fictional UI demonstrations, not assessment results or actual evidence; replace them with authorized assessment data before operational use. Browser-local edits remain on that device and do not update the bundled snapshot or other users' copies.
 
 ## 5. Current implementation and limitations
 

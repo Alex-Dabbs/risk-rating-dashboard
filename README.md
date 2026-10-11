@@ -51,7 +51,8 @@ Return to the terminal running Vite and press **Ctrl+C**. To start the dashboard
 ## Notes
 
 - Findings are stored in the browser's local storage on the device and browser where they are entered.
-- The initial findings are sample data for preview purposes.
+- A bundled synthetic demo snapshot in `src/data/demo-findings.snapshot.json` prepopulates a new browser profile with complete finding records, example evidence and remediation fields, and dated `Demo User` updates. The entries are fictional examples, not assessment results or actual evidence.
+- Each browser keeps its own editable findings in local storage. Changes made by one visitor are not synchronized to other downloads or browsers.
 - This project is an early dashboard prototype; it does not currently provide a shared server or authentication.
 
 ## Build
