@@ -16,14 +16,9 @@ export function migrateFindings(records) {
 
   return records.map((finding) => {
     const oldId = String(finding.id || '')
-    const snapshotIndex = starterFindings.findIndex((sample) => sample.id === oldId)
     const legacyIndex = legacySampleIds.indexOf(oldId)
     const sampleIndex = legacyIndex >= 0 ? legacyIndex : previousSampleIds.indexOf(oldId)
     let id = oldId
-    if (snapshotIndex >= 0 && finding.description === 'Example record for demonstrating the dashboard only. Replace with assessment data.' && finding.owner === 'Sample Department' && finding.lastUpdated === '2026-01-11') {
-      const sample = starterFindings[snapshotIndex]
-      return { ...sample, id, dateIdentified: finding.dateIdentified || sample.dateIdentified, dueDate: finding.dueDate || sample.dueDate, status: finding.status || sample.status }
-    }
     if (sampleIndex >= 0) id = starterFindings[sampleIndex].id
     else if (/^\d{1,4}$/.test(oldId)) id = `${currentYear}-${oldId.padStart(4, '0')}`
     else {
