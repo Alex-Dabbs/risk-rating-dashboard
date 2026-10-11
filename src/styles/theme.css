@@ -1,0 +1,117 @@
+.app-shell[data-theme='dark'] {
+  --dark-bg: #0b1220;
+  --dark-surface: #131e2c;
+  --dark-surface-raised: #172435;
+  --dark-border: #2a394c;
+  --dark-text: #e5edf7;
+  --dark-heading: #f2f6fc;
+  --dark-muted: #a4b1c1;
+  --dark-subtle: #8594a8;
+  min-height: 100vh;
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  color-scheme: dark;
+}
+.app-shell[data-theme='dark'] .sidebar,
+.app-shell[data-theme='dark'] .metric-card,
+.app-shell[data-theme='dark'] .panel,
+.app-shell[data-theme='dark'] .finding-card,
+.app-shell[data-theme='dark'] .modal {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+.app-shell[data-theme='dark'] .topbar,
+.app-shell[data-theme='dark'] .findings-panel,
+.app-shell[data-theme='dark'] .sidebar-bottom,
+.app-shell[data-theme='dark'] .table-footer,
+.app-shell[data-theme='dark'] .chart-note,
+.app-shell[data-theme='dark'] td,
+.app-shell[data-theme='dark'] th {
+  border-color: var(--dark-border);
+}
+.app-shell[data-theme='dark'] .topbar { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .brand,
+.app-shell[data-theme='dark'] .page-heading h1,
+.app-shell[data-theme='dark'] .metric-value,
+.app-shell[data-theme='dark'] .panel-heading h2,
+.app-shell[data-theme='dark'] .findings-header h2,
+.app-shell[data-theme='dark'] .modal-heading h2,
+.app-shell[data-theme='dark'] .donut-center strong { color: var(--dark-heading); }
+.app-shell[data-theme='dark'] .brand-sub,
+.app-shell[data-theme='dark'] .nav-label,
+.app-shell[data-theme='dark'] .page-heading p,
+.app-shell[data-theme='dark'] .panel-heading p,
+.app-shell[data-theme='dark'] .findings-header p,
+.app-shell[data-theme='dark'] .metric-top,
+.app-shell[data-theme='dark'] .metric-foot,
+.app-shell[data-theme='dark'] .chart-note,
+.app-shell[data-theme='dark'] .legend-row,
+.app-shell[data-theme='dark'] .focus-copy span,
+.app-shell[data-theme='dark'] .finding-card dt,
+.app-shell[data-theme='dark'] .table-footer,
+.app-shell[data-theme='dark'] .page-footer,
+.app-shell[data-theme='dark'] .modal-intro,
+.app-shell[data-theme='dark'] .field span,
+.app-shell[data-theme='dark'] .detail-grid > div > span { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .brand-mark { color: #fff; }
+.app-shell[data-theme='dark'] .nav-item { color: #b5c0ce; }
+.app-shell[data-theme='dark'] .nav-item.active,
+.app-shell[data-theme='dark'] .mobile-nav a:first-child,
+.app-shell[data-theme='dark'] .mobile-nav a:focus,
+.app-shell[data-theme='dark'] .mobile-nav a:hover { color: #a9c4ff; background: #1c3152; }
+.app-shell[data-theme='dark'] .nav-count,
+.app-shell[data-theme='dark'] .period-chip,
+.app-shell[data-theme='dark'] .theme-toggle,
+.app-shell[data-theme='dark'] .secondary-button,
+.app-shell[data-theme='dark'] .cancel-button,
+.app-shell[data-theme='dark'] .search-box,
+.app-shell[data-theme='dark'] .table-controls select,
+.app-shell[data-theme='dark'] .field input,
+.app-shell[data-theme='dark'] .field select {
+  background: var(--dark-surface-raised);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+.app-shell[data-theme='dark'] .period-chip span,
+.app-shell[data-theme='dark'] .legend-row strong { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .modal-actions { border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .field input::placeholder { color: var(--dark-subtle); }
+.app-shell[data-theme='dark'] .theme-toggle:hover,
+.app-shell[data-theme='dark'] .secondary-button:hover,
+.app-shell[data-theme='dark'] .cancel-button:hover { background: #203148; }
+.app-shell[data-theme='dark'] .theme-toggle { font-size: 17px; }
+.app-shell[data-theme='dark'] .table-controls select,
+.app-shell[data-theme='dark'] .field input,
+.app-shell[data-theme='dark'] .field select { color-scheme: dark; }
+.app-shell[data-theme='dark'] .search-box input,
+.app-shell[data-theme='dark'] .search-box input::placeholder { background: transparent; color: var(--dark-muted); }
+.app-shell[data-theme='dark'] th { background: #182638; color: #a7b4c5; }
+.app-shell[data-theme='dark'] td { color: #b5c0ce; }
+.app-shell[data-theme='dark'] .finding-cell strong,
+.app-shell[data-theme='dark'] .finding-card h3,
+.app-shell[data-theme='dark'] .detail-grid strong,
+.app-shell[data-theme='dark'] .finding-card dd,
+.app-shell[data-theme='dark'] .focus-copy strong { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .finding-cell span,
+.app-shell[data-theme='dark'] .finding-card-id { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .finding-link { color: #8eb2ff; }
+.app-shell[data-theme='dark'] .finding-link:hover { color: #b4ccff; }
+.app-shell[data-theme='dark'] .donut::before { background: var(--dark-surface); }
+.app-shell[data-theme='dark'] .donut-center span { color: #a4b1c1; }
+.app-shell[data-theme='dark'] .focus-item,
+.app-shell[data-theme='dark'] .finding-card dl { border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .detail-description { background: #1a293b; color: var(--dark-text); }
+.app-shell[data-theme='dark'] .close-button { color: #b3c0d0; }
+.app-shell[data-theme='dark'] .no-results,
+.app-shell[data-theme='dark'] .cards-empty,
+.app-shell[data-theme='dark'] .empty-small { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .table-footer strong { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .mobile-nav { border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .mobile-nav a { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .mobile-nav span { background: #26364a; color: var(--dark-text); }
+@media (max-width: 760px) {
+  .theme-toggle { width: 36px; height: 36px; flex: 0 0 36px; }
+}
+
+/* Readability pass: keep the hierarchy while bringing supporting text to a comfortable size. */

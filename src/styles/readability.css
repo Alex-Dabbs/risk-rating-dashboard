@@ -1,0 +1,64 @@
+.brand-sub { font-size: 11px; }
+.nav-label { font-size: 11px; }
+.nav-item { font-size: 14px; }
+.nav-count { font-size: 11px; }
+.sidebar-bottom { font-size: 12px; }
+.sidebar-bottom strong { font-size: 12px; }
+.sidebar-bottom small { font-size: 11px; }
+.topbar { font-size: 12px; }
+.top-actions { font-size: 11px; }
+.eyebrow { font-size: 11px; }
+.page-heading p { font-size: 13px; line-height: 1.5; }
+.primary-button, .secondary-button, .cancel-button { min-height: 38px; height: auto; font-size: 12px; }
+.metric-top { font-size: 12px; }
+.metric-foot { font-size: 11px; line-height: 1.4; }
+.panel-heading h2, .findings-header h2 { font-size: 15px; }
+.panel-heading p, .findings-header p { font-size: 12px; line-height: 1.45; }
+.period-chip { font-size: 11px; }
+.legend-row { height: 26px; font-size: 12px; }
+.legend-row strong { font-size: 11px; }
+.donut-center span { font-size: 11px; }
+.chart-note { font-size: 11px; line-height: 1.5; }
+.focus-copy .finding-link, .finding-cell .finding-link { font-size: 12px; }
+.focus-copy span { font-size: 11px; }
+.risk-tag { font-size: 11px; }
+.empty-small { font-size: 12px; }
+.table-controls select { font-size: 11px; }
+.search-box input { font-size: 12px; }
+th { font-size: 10px; letter-spacing: .45px; }
+td { font-size: 11px; }
+.finding-cell strong { font-size: 12px; }
+.finding-cell span { font-size: 11px; }
+.overdue-date small { font-size: 10px; }
+.status-select { font-size: 11px; }
+.table-footer { font-size: 11px; }
+.page-footer { font-size: 11px; line-height: 1.55; }
+.modal-intro { font-size: 12px; line-height: 1.5; }
+.field span { font-size: 11px; }
+.field input, .field select { min-height: 38px; font-size: 12px; }
+.detail-grid > div > span { font-size: 11px; }
+.detail-grid strong { font-size: 13px; }
+.finding-card dt { font-size: 11px; }
+.finding-card dd { font-size: 12px; }
+.finding-card dd small { font-size: 11px; }
+.cards-empty { font-size: 13px; }
+.no-results { font-size: 12px; }
+.toast { font-size: 12px; }
+
+@media (max-width: 760px) {
+  .page-heading p { font-size: 12px; }
+  .table-controls select { font-size: 12px; }
+  .table-footer { font-size: 11px; }
+  .metric-card { min-height: 112px; }
+  .finding-card dt { font-size: 11px; }
+  .finding-card dd { font-size: 12px; }
+}
+
+@media (max-width: 420px) {
+  .topbar { font-size: 11px; }
+  .metric-top { font-size: 11px; }
+  .metric-foot { font-size: 10px; }
+  .finding-card dt { font-size: 11px; }
+  .table-footer { align-items: flex-start; flex-direction: column; justify-content: center; }
+}
+

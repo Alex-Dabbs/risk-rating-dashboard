@@ -1,0 +1,52 @@
+/* Focused readability uplift for the findings register and risk distribution. */
+th { font-size: 11px; }
+td { font-size: 12px; }
+.finding-cell .finding-link { font-size: 13px; }
+.finding-cell span { font-size: 12px; line-height: 1.4; }
+.finding-cell strong { font-size: 13px; }
+.owner-cell { font-size: 12px; }
+.risk-tag { font-size: 12px; }
+.status-select { font-size: 12px; }
+.overdue-date small { font-size: 11px; }
+td { padding-top: 12px; padding-bottom: 12px; }
+.table-controls select { font-size: 12px; }
+.table-footer { font-size: 12px; }
+.legend-row { height: 28px; font-size: 13px; }
+.legend-row strong { font-size: 12px; }
+.donut-center span { font-size: 12px; }
+.chart-note { font-size: 12px; }
+.finding-card dt { font-size: 12px; }
+.finding-card dd { font-size: 13px; }
+.finding-card .finding-link { font-size: 13px; }
+.finding-card-id { font-size: 12px; }
+.focus-copy span { font-size: 12px; }
+
+/* Keep Risk and Status controls at their previous size in the desktop table. */
+.table-wrap .risk-tag,
+.table-wrap .status-select { font-size: 11px; }
+.table-wrap .status-select { text-align: center; text-align-last: center; }
+.status-menu-root { display: inline-flex; max-width: 100%; }
+.status-select { display: inline-flex; align-items: center; justify-content: center; gap: 5px; line-height: 1.2; white-space: nowrap; }
+.status-select:focus-visible { outline: 2px solid #5886e8; outline-offset: 2px; }
+.status-menu-chevron { width: 12px; height: 12px; margin-left: 1px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.period-chevron { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.status-menu-popup { position: fixed; z-index: 20; overflow-y: auto; border: 1px solid #d9dee7; border-radius: 7px; background: #fff; box-shadow: 0 10px 28px #10182835; }
+.status-menu-listbox { padding: 4px; outline: none; }
+.status-menu-option { padding: 8px 10px; border-radius: 4px; color: #344054; background: transparent; font-size: 12px; line-height: 1.35; cursor: pointer; }
+.status-menu-option.selected { font-weight: 700; }
+.status-menu-popup:not([data-theme='dark']) .status-menu-option.active,
+.status-menu-popup:not([data-theme='dark']) .status-menu-option:hover { color: #1f2937; background: #e8edf5; }
+.status-menu-popup[data-theme='dark'] { border-color: #3b4655; background: #182230; }
+.status-menu-popup[data-theme='dark'] .status-menu-option { color: #d6deea; }
+.status-menu-popup[data-theme='dark'] .status-menu-option.active,
+.status-menu-popup[data-theme='dark'] .status-menu-option:hover { color: #f8fafc; background: #454b55; }
+.status-menu-option:focus-visible { outline: 2px solid #7ea6f5; outline-offset: -2px; }
+.focus-panel .panel-heading { margin-bottom: 10px; }
+.add-finding-backdrop { background: rgba(11, 18, 32, .64); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.field textarea { width: 100%; min-height: 108px; border: 1px solid #dfe4eb; border-radius: 5px; padding: 9px; outline: none; resize: vertical; color: #344054; background: #fff; font: inherit; line-height: 1.5; }
+.field textarea:focus { border-color: #5886e8; box-shadow: 0 0 0 2px #215bdb16; }
+.field span.field-hint { color: #8490a1; font-size: 11px; font-weight: 400; }
+.app-shell[data-theme='dark'] .field textarea { border-color: var(--dark-border); color: var(--dark-text); background: var(--dark-surface-raised); color-scheme: dark; }
+.app-shell[data-theme='dark'] .field textarea::placeholder { color: var(--dark-subtle); }
+.app-shell[data-theme='dark'] .field span.field-hint { color: var(--dark-muted); }
+

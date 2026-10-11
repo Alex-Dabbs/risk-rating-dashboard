@@ -1,0 +1,76 @@
+/* Lucide icon sizing and alignment across the dashboard. */
+.nav-item > svg { width: 17px; height: 17px; flex: 0 0 17px; stroke-width: 1.8; }
+.chevron { width: 15px; height: 15px; }
+.primary-button, .secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.primary-button > svg, .secondary-button > svg { width: 15px; height: 15px; stroke-width: 2; }
+.metric-icon > svg { width: 15px; height: 15px; stroke-width: 1.8; }
+.attention-icon > svg { width: 13px; height: 13px; stroke-width: 1.9; }
+.search-box > svg { width: 15px; height: 15px; flex: 0 0 15px; stroke-width: 1.8; }
+.theme-toggle > svg { width: 17px; height: 17px; stroke-width: 1.8; }
+.close-button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border-radius: 5px; }
+.close-button > svg { width: 18px; height: 18px; stroke-width: 1.8; }
+.close-button:hover { background: #f2f4f7; }
+.toast { display: flex; align-items: center; gap: 8px; }
+.toast > svg { width: 15px; height: 15px; }
+.sidebar .nav-item { width: 100%; border: 0; background: transparent; text-align: left; font-family: inherit; cursor: pointer; }
+.sidebar .nav-item.active { background: #edf3ff; }
+.mobile-nav button { display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 0 13px; border: 0; border-radius: 7px; background: transparent; color: #667085; font-family: inherit; font-size: 13px; font-weight: 600; }
+.mobile-nav button.active, .mobile-nav button:hover, .mobile-nav button:focus-visible { background: #edf3ff; color: #215bdb; }
+.mobile-nav button:focus-visible { outline: 2px solid #5886e8; outline-offset: 2px; }
+.app-shell[data-theme='dark'] .sidebar .nav-item.active { background: #1c3152; }
+.app-shell[data-theme='dark'] .mobile-nav button { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .mobile-nav button.active,
+.app-shell[data-theme='dark'] .mobile-nav button:hover,
+.app-shell[data-theme='dark'] .mobile-nav button:focus-visible { color: #a9c4ff; background: #1c3152; }
+.residual-risk-panel { margin-bottom: 15px; }
+.residual-assessment-count { flex: 0 0 auto; padding: 5px 9px; border: 1px solid #e6eaf0; border-radius: 20px; color: #667085; background: #fbfcfd; font-size: 11px; font-weight: 600; }
+.residual-risk-bar { display: flex; width: 100%; height: 14px; overflow: hidden; margin: 19px 0 15px; border-radius: 10px; background: #eef1f5; }
+.residual-risk-segment { height: 100%; transition: width .2s ease; }
+.residual-risk-segment.low { background: #43a983; }
+.residual-risk-segment.medium { background: #4279d6; }
+.residual-risk-segment.high { background: #e79436; }
+.residual-risk-segment.critical { background: #d94b47; }
+.residual-risk-segment.accepted { background: #7957c7; }
+.residual-risk-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px 16px; }
+.residual-risk-item { display: flex; min-width: 0; align-items: center; gap: 8px; color: #687588; font-size: 12px; }
+.residual-risk-item strong { margin-left: auto; color: #344054; font-size: 12px; }
+.residual-risk-item .legend-dot { flex: 0 0 8px; width: 8px; height: 8px; }
+.residual-risk-item.unassessed .legend-dot { background: #aab3c0; }
+.residual-risk-item.accepted .legend-dot { background: #7957c7; }
+.residual-risk-note { margin: 16px 0 0; color: #8490a1; font-size: 11px; line-height: 1.5; }
+.app-shell[data-theme='dark'] .residual-assessment-count { border-color: var(--dark-border); color: var(--dark-muted); background: var(--dark-surface-raised); }
+.app-shell[data-theme='dark'] .residual-risk-bar { background: #263448; }
+.app-shell[data-theme='dark'] .residual-risk-item { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .residual-risk-item strong { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .residual-risk-note { color: var(--dark-muted); }
+.residual-risk-assessment { display: grid; gap: 12px; margin-top: 2px; padding-top: 15px; border-top: 1px solid #eef0f3; }
+.residual-risk-rationale { display: grid; gap: 11px; margin-top: 18px; padding: 14px; border: 1px solid #e9edf2; border-radius: 7px; background: #f8fafc; }
+.residual-risk-rationale > div { display: grid; gap: 6px; min-width: 0; }
+.residual-risk-rationale span { color: #687588; font-size: 11px; font-weight: 600; }
+.residual-risk-rationale strong { color: #344054; font-size: 13px; }
+.residual-risk-rationale p { margin: 0; color: #475467; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+.app-shell[data-theme='dark'] .residual-risk-assessment { border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .residual-risk-rationale { background: var(--dark-surface-raised); border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .residual-risk-rationale span { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .residual-risk-rationale strong,
+.app-shell[data-theme='dark'] .residual-risk-rationale p { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .updates-section { border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .updates-heading h3,
+.app-shell[data-theme='dark'] .update-entry-heading strong { color: var(--dark-heading); }
+.app-shell[data-theme='dark'] .updates-heading p,
+.app-shell[data-theme='dark'] .detail-toolbar > span,
+.app-shell[data-theme='dark'] .update-composer-footer > span,
+.app-shell[data-theme='dark'] .update-entry-heading time,
+.app-shell[data-theme='dark'] .updates-empty { color: var(--dark-muted); }
+.app-shell[data-theme='dark'] .update-composer { background: var(--dark-surface-raised); border-color: var(--dark-border); }
+.app-shell[data-theme='dark'] .update-entry p { color: var(--dark-text); }
+.app-shell[data-theme='dark'] .delete-update-button { color: #f09996; }
+.app-shell[data-theme='dark'] .delete-update-button:hover { color: #ffc1bf; }
+.app-shell[data-theme='dark'] .status-select option:hover,
+.app-shell[data-theme='dark'] .status-select option:focus { color: #1f2937; }
+.app-shell[data-theme='dark'] .period-chip { color-scheme: dark; }
+.period-selector .period-chevron { color: currentColor; }
+.detail-title-area { flex: 0 1 63.5%; min-width: 0; }
+.detail-title-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.detail-title-row h2 { min-width: 0; }
+.detail-title-row .secondary-button { flex: 0 0 auto; white-space: nowrap; }

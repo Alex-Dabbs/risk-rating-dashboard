@@ -1,0 +1,124 @@
+/* Responsive layout foundations and targeted viewport adaptations */
+.app-shell { min-height: 100vh; overflow-x: clip; }
+.main-content { width: 100%; max-width: 1840px; margin: 0 auto; padding: 0 40px 24px 280px; }
+.mobile-nav { display: none; }
+.table-wrap { overflow-x: auto; }
+.finding-cards { display: none; }
+
+@media (min-width: 1450px) {
+  .main-content { margin: 0 auto; padding: 0 46px 24px 286px; }
+}
+
+@media (max-width: 1200px) {
+  .sidebar { width: 210px; }
+  .main-content { padding-left: 246px; padding-right: 28px; }
+  .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .content-grid { grid-template-columns: 1fr; }
+  .chart-area { justify-content: flex-start; gap: clamp(32px, 8vw, 90px); }
+}
+
+@media (max-width: 760px) {
+  .sidebar { position: static; width: 100%; height: auto; padding: 11px 15px; flex-direction: row; align-items: center; border-right: 0; border-bottom: 1px solid #e8ebef; }
+  .nav-label, .sidebar-bottom, .sidebar > .nav-item { display: none; }
+  .brand { font-size: 15px; }
+  .brand-mark { width: 30px; height: 30px; }
+  .main-content { margin: 0; padding: 0 18px 22px; }
+  .mobile-nav { display: flex; gap: 8px; border-bottom: 1px solid #e9ecf0; padding: 9px 0; }
+  .mobile-nav a { display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 0 13px; border-radius: 7px; color: #667085; font-size: 13px; font-weight: 600; }
+  .mobile-nav a:first-child, .mobile-nav a:focus, .mobile-nav a:hover { background: #edf3ff; color: #215bdb; }
+  .mobile-nav span { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: white; color: #667085; font-size: 11px; }
+  .topbar { height: 48px; }
+  .top-actions { font-size: 0; gap: 4px; }
+  .top-actions .updated-dot { margin-right: 3px; }
+  .page-heading { padding: 22px 0 17px; align-items: flex-end; gap: 12px; }
+  .page-heading h1 { font-size: 22px; }
+  .page-heading p { max-width: 360px; font-size: 12px; line-height: 1.45; }
+  .page-heading .primary-button { min-height: 40px; flex: 0 0 auto; }
+  .metrics-grid { gap: 10px; }
+  .metric-card { min-width: 0; padding: 13px; min-height: 108px; }
+  .metric-top { gap: 6px; font-size: 11px; }
+  .metric-foot { font-size: 10px; line-height: 1.35; }
+  .content-grid { gap: 10px; margin-bottom: 12px; }
+  .panel { padding: 15px; }
+  .findings-panel { padding: 15px 0 0; }
+  .findings-header { padding: 0 15px 13px; gap: 10px; }
+  .findings-header p { font-size: 11px; line-height: 1.4; }
+  .secondary-button { min-height: 40px; white-space: nowrap; }
+  .table-controls { flex-wrap: wrap; padding: 11px 15px; gap: 8px; }
+  .search-box { width: 100%; height: 40px; }
+  .table-controls select { min-height: 40px; flex: 1 1 auto; font-size: 11px; }
+  .table-controls select:last-child { margin-left: 0; }
+  .table-wrap { display: none; }
+  .finding-cards { display: grid; gap: 10px; padding: 12px 13px; }
+  .finding-card { min-width: 0; border: 1px solid #e9edf2; border-radius: 8px; background: #fff; padding: 13px; }
+  .finding-card-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .finding-card h3 { margin: 11px 0 4px; color: #344054; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+  .finding-card-id { color: #8b95a5; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+  .finding-card-id span { padding: 0 3px; }
+  .finding-card dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 12px; margin: 13px 0 0; padding-top: 12px; border-top: 1px solid #f0f2f5; }
+  .finding-card dl > div { min-width: 0; }
+  .finding-card dt { color: #929cac; font-size: 10px; }
+  .finding-card dd { margin: 3px 0 0; color: #596579; font-size: 11px; overflow-wrap: anywhere; }
+  .finding-card dd small { display: block; margin-top: 2px; font-size: 10px; }
+  .status-select { min-height: 36px; font-size: 11px; }
+  .cards-empty { padding: 22px 10px; text-align: center; color: #929eae; font-size: 12px; }
+  .table-footer { min-height: 44px; gap: 8px; padding: 7px 15px; font-size: 10px; }
+  .chart-area { justify-content: space-between; gap: 16px; }
+  .donut { flex: 0 0 108px; width: 108px; height: 108px; }
+  .legend { width: min(128px, 42%); }
+  .chart-note { font-size: 10px; line-height: 1.4; }
+  .page-footer { line-height: 1.6; font-size: 10px; }
+  .footer-right { float: none; display: block; padding: 2px 0 !important; }
+}
+
+@media (max-width: 420px) {
+  .main-content { padding-right: 12px; padding-left: 12px; }
+  .topbar { font-size: 10px; }
+  .crumb span { padding: 0 4px; }
+  .page-heading { align-items: flex-start; flex-direction: column; }
+  .page-heading .primary-button { align-self: flex-start; }
+  .metrics-grid { gap: 8px; }
+  .metric-card { padding: 11px; }
+  .metric-top { font-size: 10px; }
+  .metric-value { font-size: 23px; }
+  .metric-foot { font-size: 9px; }
+  .panel { padding: 12px; }
+  .findings-panel { padding: 13px 0 0; }
+  .findings-header { padding: 0 12px 11px; align-items: flex-start; flex-direction: column; }
+  .findings-header .secondary-button { align-self: flex-start; }
+  .table-controls { padding: 10px 12px; }
+  .table-controls select { flex-basis: 100%; }
+  .finding-cards { padding-right: 10px; padding-left: 10px; }
+  .finding-card { padding: 12px; }
+  .modal-backdrop { place-items: start center; overflow-y: auto; padding: 12px; }
+  .modal { width: min(500px, 100%); max-height: calc(100dvh - 24px); overflow-y: auto; padding: 18px; margin: auto 0; }
+  .form-row { flex-direction: column; gap: 12px; }
+  .field input, .field select { min-height: 42px; font-size: 13px; }
+  .field span { font-size: 11px; }
+  .modal-actions button { min-height: 42px; }
+}
+
+@media (max-height: 620px) {
+  .modal-backdrop { place-items: start center; overflow-y: auto; }
+  .modal { max-height: calc(100dvh - 32px); overflow-y: auto; margin: 16px 0; }
+}
+
+/* Let ultrawide desktops use more of the available canvas without stretching edge to edge. */
+@media (min-width: 1920px) {
+  .main-content {
+    width: min(2800px, calc(100vw - 240px));
+    max-width: none;
+    margin-left: calc((100vw - 240px - min(2800px, 100vw - 240px)) / 2 + 240px);
+    margin-right: 0;
+    padding: 0 56px 28px 46px;
+  }
+
+  .metrics-grid, .content-grid { gap: 18px; }
+  .metric-card, .panel { border-radius: 10px; }
+  .metric-card { padding: 19px 20px 16px; }
+  .panel { padding: 22px; }
+  .findings-panel { padding: 22px 0 0; }
+  .findings-header { padding-right: 22px; padding-left: 22px; }
+  .chart-area { gap: clamp(58px, 5vw, 120px); }
+}
+
