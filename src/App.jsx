@@ -49,7 +49,7 @@ function App() {
 
   function handlePostUpdate(id, comment) {
     if (!comment) return false
-    updateHistory(id, (finding) => ({ ...finding, updates: [...(finding.updates || []), { comment, author: 'Demo User', createdAt: new Date().toISOString() }], lastUpdated: localDateString() }))
+    updateHistory(id, (finding) => ({ ...finding, updates: [...(finding.updates || []), { comment, author: 'Alex Dabbs', createdAt: new Date().toISOString() }], lastUpdated: localDateString() }))
     return true
   }
 

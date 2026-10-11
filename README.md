@@ -51,7 +51,7 @@ Return to the terminal running Vite and press **Ctrl+C**. To start the dashboard
 ## Notes
 
 - Findings are stored in the browser's local storage on the device and browser where they are entered.
-- The initial findings are sample data for preview purposes.
+- New browser profiles start with the finding snapshot in `src/data/browser-findings.snapshot.json`. It includes the records and updates provided for this project.
 - This project is an early dashboard prototype; it does not currently provide a shared server or authentication.
 
 ## Build

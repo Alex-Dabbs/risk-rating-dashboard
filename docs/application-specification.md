@@ -88,7 +88,7 @@ An action or progress comment nested in a finding's `updates` array.
 | Field | Type / format | Required | Description |
 |---|---|---:|---|
 | `comment` | String | Yes | User-entered remediation action or progress note. |
-| `author` | String | Yes | Display name attached to the update. The public demo uses `Demo User`. |
+| `author` | String | Yes | Display name attached to the update. Existing snapshot entries use the supplied author name. |
 | `createdAt` | ISO 8601 timestamp | Yes | Date and time the update was posted. |
 
 ### Browser preferences and storage
@@ -98,13 +98,13 @@ An action or progress comment nested in a finding's `updates` array.
 | `grc-findings` | JSON array of Finding records | Persists findings and their nested updates in browser local storage. |
 | `grc-theme` | `light` or `dark` | Persists the selected theme in browser local storage. |
 
-No server-side database or separate Company entity is currently implemented. The overview's company identity (`Ceraphin Energy Solutions`) is configured directly in the interface, and the update author (`Demo User`) remains a demonstration value. The initial five records are synthetic sample data used to populate a new browser profile. Replace them with authorized assessment data before use.
+No server-side database or separate Company entity is currently implemented. The overview's company identity (`Ceraphin Energy Solutions`) is configured directly in the interface. New browser profiles are initialized from `src/data/browser-findings.snapshot.json`, which contains the findings and updates supplied for this project. Browser-local edits remain on that device and do not update the bundled snapshot or other users' copies.
 
 ## 5. Current implementation and limitations
 
 - **Client:** React single-page application, built and served with Vite; styles are maintained in CSS.
 - **Persistence:** Browser local storage. Records are available only in the same browser profile and on the same device where they were entered. Clearing site data removes them. There is no synchronization, backup, access control, or central audit store.
-- **Authentication and attribution:** No sign-in or role system exists. `Demo User` is a fixed demonstration author, not an authenticated identity. Users of the same browser can edit the same locally stored records.
+- **Authentication and attribution:** No sign-in or role system exists. New updates are attributed to Alex Dabbs as configured in the demonstration, not to an authenticated identity. Users of the same browser can edit the same locally stored records.
 - **Import and export:** The app does not currently import the three supporting documents or provide a data import/export workflow.
 - **Audit history:** Updates provide a dated comment history, but updates can be deleted and edits to finding fields do not retain before/after values. This is not an immutable audit log.
 - **Company identity:** The displayed company name is currently hard-coded rather than configured as a data entity.
